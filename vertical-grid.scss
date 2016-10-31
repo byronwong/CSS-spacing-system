@@ -1,4 +1,4 @@
-// Byron's (experimental) vertical grid system
+// Vertical Grid System (VGS)
 // ===========================================
 // https://github.com/byronwong/vertical-grid-system
 
@@ -26,18 +26,20 @@ $p: 1;
 // Borders
 // -------
 // returns the amount of rems equlivilant in x pixel border
+// to use: calBorder(1);
 @function calBorder ($borderWidthInPx : 1) {
   @return ((1 / $base-font-size) * $borderWidthInPx) + rem;
 }
 
 // returns the amount of required spacing minus the border
+// to use: calSpacing(1,2);
 @function calSpacing($borderWidthInPx: 1, $spacingMultiplier : 1) {
   @return (($su * $spacingMultiplier) - ((1/$base-font-size) * $borderWidthInPx));
 }
 
 // Spacing
 // -------
-// calSu(4) === $su * 4
+// calSu(4) == $su * 4
 @function calSu($spacingUnitMultiplier){
   @return ($su * $spacingUnitMultiplier);
 }

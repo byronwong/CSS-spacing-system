@@ -1,0 +1,25 @@
+{
+  "name": "vertical-grid-system",
+  "version": "0.1.0",
+  "description": "An attempts give designers and engineers a way to implement vertical rhythm or vertical grid",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byronwong/vertical-grid-system.git"
+  },
+  "keywords": [
+    "vertical",
+    "grid",
+    "rhythm",
+    "css"
+  ],
+  "author": "Byron Wong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byronwong/vertical-grid-system/issues"
+  },
+  "homepage": "https://github.com/byronwong/vertical-grid-system#readme"
+}
