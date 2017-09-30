@@ -1,45 +1,52 @@
-// Byron's (experimental) vertical grid system
-// ===========================================
-// https://github.com/byronwong/vertical-grid-system
+// Grid spacing system
+// ===================
+
+// For docs visit: https://github.com/byronwong/spacing-system
 
 // Variables
 // ---------
-$base-font-size: 14;
+$base-font-size: 16;
 $base-line-height : 1.5; // alternative bases if you think 150% is too much 1, 1.25, 1.5, 1.75, 2
 $base-lh-unit: 0.5;
 $su: 0.5rem; // Spacing unit (su) does not like taking a variable
 
 // Font families
+// Add you fonts here
 $font-family-display: 'Open Sans', sans-serif;
 $font-family-heading: 'Open Sans', sans-serif;
 $font-family-copy: 'Open Sans', sans-serif;
 
 // Modular Scale
-$h1: 5.96;
-$h2: 3.815;
-$h3: 2.441;
-$h4: 1.563;
+// Ratio 4:5 - (Major third) - http://www.modularscale.com/?16&px&1.25
+// copy and paste the table values in here
+$h1: 1.953;
+$h2: 1.563;
+$h3: 1.25;
+$h4: 1;
 $h5: 0.8;
-$h6: 0.8;
+$h6: 0.64;
 $p: 1;
 
-// Borders
-// -------
+// Spacing  with no borders
+// ------------------------
+// calSu(4) === $su * 4
+@function calSu($spacingUnitMultiplier){
+  @return ($su * $spacingUnitMultiplier);
+}
+
+
+// Spacing with borders
+// --------------------
 // returns the amount of rems equlivilant in x pixel border
 @function calBorder ($borderWidthInPx : 1) {
   @return ((1 / $base-font-size) * $borderWidthInPx) + rem;
 }
 
 // returns the amount of required spacing minus the border
+// to be used with margins and padding
+// NOTE: collapsing margins
 @function calSpacing($borderWidthInPx: 1, $spacingMultiplier : 1) {
   @return (($su * $spacingMultiplier) - ((1/$base-font-size) * $borderWidthInPx));
-}
-
-// Spacing
-// -------
-// calSu(4) === $su * 4
-@function calSu($spacingUnitMultiplier){
-  @return ($su * $spacingUnitMultiplier);
 }
 
 
@@ -56,7 +63,6 @@ html {
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td,ul,li {
   text-rendering: optimizeLegibility;
   vertical-align: baseline;
-  color:$base-color;
 }
 
 
@@ -140,8 +146,7 @@ h6 {@include h6;}
 // Spans and links should inherit styles from their parent
 p {@include p;}
 
-label,
-span {
+label {
   @include calFontSize($h5);
   font-family: $font-family-heading;
   line-height: 100%;
